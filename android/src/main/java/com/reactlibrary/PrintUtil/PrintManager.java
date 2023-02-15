@@ -14,7 +14,7 @@ import com.sunmi.peripheral.printer.InnerResultCallback;
 import java.util.LinkedList;
 import java.util.Queue;
 import android.util.Log;
-
+import com.reactlibrary.PrintUtil.interfaces.KModelPrinterStatus;
 import woyou.aidlservice.jiuiv5.ICallback;
 
 public class PrintManager {
@@ -26,7 +26,7 @@ public class PrintManager {
         return manager;
     }
 
-    private Queue<Ticket> queue = new LinkedList();
+    private Queue<Bitmap> queue = new LinkedList();
     private boolean end = true;
     private boolean next = false;
 
@@ -38,10 +38,10 @@ public class PrintManager {
         WritableMap map = Arguments.createMap();
         map.putInt("printerStatus", printerStatus);
         map.putString("ticketId", ticket.getCode());
-        if (printerStatus == PrinterStatus.NORMAL || printerStatus == PrinterStatus.LESS_OF_PAPER) {
+        if (printerStatus == KModelPrinterStatus.NORMAL || printerStatus == KModelPrinterStatus.LESS_OF_PAPER) {
             Log.d("PrintTask", "[Print] [run] Start print ticket");
             int printerQueueStatus = PrinterSdk.getInstance().printBitmap(ticket.getBitmap());
-            if (printerQueueStatus >= PrinterQueueStatus.NORMAL) {
+            if (printerQueueStatus >= KModelPrinterStatus.NORMAL) {
                 Log.d("PrintTask", "[Print] [run] Done print ticket");
                 PrinterSdk.getInstance().lineWrap();
                 PrinterSdk.getInstance().flush();

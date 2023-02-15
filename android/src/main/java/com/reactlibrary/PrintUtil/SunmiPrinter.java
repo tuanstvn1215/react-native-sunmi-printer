@@ -182,7 +182,6 @@ class SunmiPrinter {
 
     public int initPrinter() {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
 
         }
@@ -234,7 +233,6 @@ class SunmiPrinter {
      */
     public int setAlignment(int alignment) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
 
         }
@@ -254,7 +252,6 @@ class SunmiPrinter {
 
     public int flush() {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
 
@@ -321,7 +318,6 @@ class SunmiPrinter {
 
     public int lineWrap(int n) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
 
@@ -350,7 +346,6 @@ class SunmiPrinter {
 
     public int cutPaper(int type) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
 
@@ -377,7 +372,6 @@ class SunmiPrinter {
         Log.d(PRINTER_DEBUG, "printText " + content);
 
         if (!isConnect()) {
-            // Toast.makeText(mContext, R.string.msg_service_disconnected,
             // Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
@@ -409,7 +403,6 @@ class SunmiPrinter {
     }
     public int printBitmap(Bitmap bitmap, boolean autoScale, ICallback.Stub callback) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
 
@@ -451,7 +444,6 @@ class SunmiPrinter {
 
     public int sendRawData(byte[] data) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
         try {
@@ -469,7 +461,6 @@ class SunmiPrinter {
 
     public int tab() {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
         try {
@@ -487,7 +478,6 @@ class SunmiPrinter {
 
     public int setHorizontalTab(int[] k) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
         try {
@@ -505,7 +495,6 @@ class SunmiPrinter {
 
     public int setFontZoom(int hor, int ver) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
         try {
@@ -536,7 +525,6 @@ class SunmiPrinter {
      */
     public int printQrCode(String code, int modeSize) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
         try {
@@ -554,7 +542,6 @@ class SunmiPrinter {
 
     public int commitPrint(TransBean[] transBeans) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return RealPrinterStatus.PRINTER_NOT_READY;
         }
 
@@ -572,7 +559,6 @@ class SunmiPrinter {
 
     public int getPrintedLength(ICallback.Stub callback) {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return -1;
         }
 
@@ -591,7 +577,6 @@ class SunmiPrinter {
 
     public int commitPrinterBuffer() {
         if (!isConnect()) {
-            Toast.makeText(mContext, R.string.msg_service_disconnected, Toast.LENGTH_LONG).show();
             return -1;
         }
 
