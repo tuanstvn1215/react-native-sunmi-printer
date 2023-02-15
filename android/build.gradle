@@ -22,7 +22,7 @@ def safeExtGet(prop, fallback) {
 }
 
 apply plugin: 'com.android.library'
-apply plugin: 'maven'
+// apply plugin: 'maven'
 
 buildscript {
     // The Android Gradle plugin is only required when opening the android folder stand-alone.
@@ -71,6 +71,9 @@ repositories {
 
 dependencies {
     //noinspection GradleDynamicVersion
+    implementation 'com.github.jeffreyliu8.Native-Floyd-Steinberg-Dithering:final:1.1.2'
+    implementation 'com.sunmi:printerlibrary:1.0.20'
+    implementation files('libs/core-3.3.0.jar')
     implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
 
