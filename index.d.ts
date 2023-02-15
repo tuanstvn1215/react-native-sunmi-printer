@@ -1,4 +1,5 @@
 declare module SunmiPrinter {
-  export function myfunc1(): 1;
-  export function myfunc2(param:string): string;
+  function myfunc1(): 1;
+  function myfunc2(param:string): string;
 }
+export default SunmiPrinter
