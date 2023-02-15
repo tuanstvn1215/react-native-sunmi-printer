@@ -60,7 +60,7 @@ class SunmiPrinter {
         return Build.MODEL.toLowerCase().startsWith("p") || Build.MODEL.toLowerCase().startsWith("v1s");
     }
 
-    private boolean isKModel() {
+    public boolean isKModel() {
         return Build.MODEL.toLowerCase().startsWith("k");
     }
 
