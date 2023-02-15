@@ -41,6 +41,7 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import com.facebook.react.bridge.Promise;
 import com.askjeffreyliu.floydsteinbergdithering.Utils;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.util.Log;
 
@@ -80,11 +81,10 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
     }
     @ReactMethod
     public void connectPrinterService(){
-        PrinterSdk.getInstance().connectPrinterService(this, new OnPrinterStatusChangeListener() {
+        ReactApplicationContext context = getReactApplicationContext();
+        PrinterSdk.getInstance().connectPrinterService(context, new OnPrinterStatusChangeListener() {
             public void onStatusChanged(int status, long timestamp) {
-              if (status == PrinterStatus.START_PRINTER) {
                 Log.e(PRINTER_DEBUG, "==Start== timestamp" + timestamp);
-              }
             }
           });
     }
@@ -106,9 +106,8 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
     public void printText(String text) {
   
       try {
-        byte[] bytes = Base64.decode(text, Base64.DEFAULT);
         // PrinterSdk.getInstance().initPrinter();
-        PrinterSdk.getInstance().pdf(bytes);
+        PrinterSdk.getInstance().printText(text);
         Log.e(PRINTER_DEBUG, " print text success");
       } catch (Exception e) {
         Log.e(PRINTER_DEBUG, " print text fail");
@@ -169,8 +168,14 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
               drawQR(type, canvas, scale, height, item);
             }
           }
-          Ticket ticket = new Ticket(uti.floydSteinbergDithering(bitmap), code);
-          PrintManager.getInstance(context).addTicket(ticket);
+         
+          if(PrinterSdk.getInstance().isK1Model()){
+            Ticket ticket = new Ticket(uti.floydSteinbergDithering(bitmap), code);
+            PrintManager.getInstance(context).addTicket(ticket);
+          }else{
+            PrintManager.getInstance(context).addBitmap(uti.floydSteinbergDithering(bitmap));
+          }
+          
         }
       } catch (Exception e) {
         e.printStackTrace();
@@ -365,7 +370,6 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
       } else {
         layout = new StaticLayout(text, paint, (int) pos.w, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
       }
-  
       canvas.save();
       canvas.translate(pos.x, pos.y - pos.h);
       if (item.hasKey("rotation")) {

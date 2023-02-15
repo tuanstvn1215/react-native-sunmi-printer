@@ -87,6 +87,10 @@ public class PrinterSdk {
         mSunmiPrinter.printText(data);
 
     }
+    public boolean isKModel() {
+        return mSunmiPrinter.isKModel();
+
+    }
 
     public void cutFullPaper() {
         mSunmiPrinter.cutPaper(SunmiPrinter.FULL_CUTTING);
