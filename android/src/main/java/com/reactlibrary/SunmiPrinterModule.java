@@ -169,7 +169,7 @@ public class SunmiPrinterModule extends ReactContextBaseJavaModule {
             }
           }
          
-          if(PrinterSdk.getInstance().isK1Model()){
+          if(PrinterSdk.getInstance().isKModel()){
             Ticket ticket = new Ticket(uti.floydSteinbergDithering(bitmap), code);
             PrintManager.getInstance(context).addTicket(ticket);
           }else{
