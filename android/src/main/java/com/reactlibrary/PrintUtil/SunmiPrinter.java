@@ -296,8 +296,8 @@ class SunmiPrinter {
                     case PModelPrinterStatus.NORMAL: {
                         return RealPrinterStatus.NORMAL;
                     }
-                    case PModelPrinterStatus.LESS_OF_PAPER:
-                        return RealPrinterStatus.LESS_OF_PAPER;
+                    // case PModelPrinterStatus.LESS_OF_PAPER:
+                    //     return RealPrinterStatus.LESS_OF_PAPER;
                     case PModelPrinterStatus.OUT_OF_PAPER:
                         return RealPrinterStatus.OUT_OF_PAPER;
                     case PModelPrinterStatus.COVER_OPEN:
