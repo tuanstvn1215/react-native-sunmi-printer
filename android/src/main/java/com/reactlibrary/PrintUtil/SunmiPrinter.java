@@ -279,6 +279,9 @@ class SunmiPrinter {
                     case KModelPrinterStatus.CONNECTED: {
                         return RealPrinterStatus.NORMAL;
                     }
+                    case KModelPrinterStatus.NORMAL: {
+                        return RealPrinterStatus.NORMAL;
+                    }
                     case KModelPrinterStatus.LESS_OF_PAPER:
                         return RealPrinterStatus.LESS_OF_PAPER;
                     case KModelPrinterStatus.OUT_OF_PAPER:
@@ -290,7 +293,7 @@ class SunmiPrinter {
                 }
             } else {
                 switch (woyouService.updatePrinterState()) {
-                    case PModelPrinterStatus.CONNECTED: {
+                    case PModelPrinterStatus.NORMAL: {
                         return RealPrinterStatus.NORMAL;
                     }
                     case PModelPrinterStatus.LESS_OF_PAPER:
