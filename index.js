@@ -2,7 +2,6 @@
 
 import { NativeModules } from 'react-native';
 
-const { SunmiPrinter } = NativeModules;
-SunmiPrinter.connectPrinterService()
+import test from './test'
 
-export default SunmiPrinter;
+export default test;
